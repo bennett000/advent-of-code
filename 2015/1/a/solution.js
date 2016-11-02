@@ -1,6 +1,6 @@
 const { readFileSync } = require('fs');
 
-const input = readFileSync('./input', 'utf8');
+const input = readFileSync('../input', 'utf8');
 
 const increment = '(';
 const decrement = ')';
