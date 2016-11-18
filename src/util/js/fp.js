@@ -30,6 +30,7 @@ function isObject(obj) {
 function memoize(fn) {
   const memo = Object.create(null);
   return (...args) => {
+    args.map((arg) => typeof arg === 'object' ? JSON.stringify(arg) : arg);
     const id = args.join('.');
     if (!memo[id]) {
       memo[id] = fn(...args);

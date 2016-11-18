@@ -3,5 +3,6 @@ module.exports = Object
     require('./binary'),
     require('./fp'),
     require('./fs'),
+    require('./math'),
     require('./sort')
   );
