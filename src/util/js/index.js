@@ -4,5 +4,6 @@ module.exports = Object
     require('./fp'),
     require('./fs'),
     require('./math'),
-    require('./sort')
+    require('./sort'),
+    require('./string')
   );

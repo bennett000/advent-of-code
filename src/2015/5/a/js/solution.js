@@ -1,4 +1,4 @@
-const { readInputData } = require('../../../../util');
+const { hasString, readInputData } = require('../../../../util');
 
 const input = readInputData(__dirname);
 
@@ -8,23 +8,7 @@ const vowels = Object.freeze(['a', 'e', 'i', 'o', 'u']);
 
 const forbidden = Object.freeze(['ab', 'cd', 'pq', 'xy']);
 
-function has(qty, things, str) {
-  let count = 0;
-
-  things.forEach((thing) => {
-    let occurences = 0;
-    let index = str.indexOf(thing);
-
-    while (index !== -1) {
-      occurences += 1;
-      index = str.indexOf(thing, index + 1);
-    }
-
-    count += occurences;
-  });
-
-  return count >= qty;
-}
+const has = hasString;
 
 const hasThree = has.bind(null, 3);
 
