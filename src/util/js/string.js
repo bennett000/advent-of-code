@@ -15,3 +15,7 @@ module.exports.hasString = function has(qty, things, str) {
 
   return count >= qty;
 };
+
+module.exports.trim = function trim(str) {
+  return str.trim();
+};

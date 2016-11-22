@@ -3,6 +3,7 @@ const {
   partial,
   permute,
   readInputData,
+  trim
 } = require('../../../../util');
 
 const input = readInputData(__dirname);
@@ -12,7 +13,6 @@ const createSmallest = () => ({
   distance: 0,
 });
 
-const trim = s => s.trim();
 const toInt = n => parseInt(n, 10);
 
 const instructions = input
