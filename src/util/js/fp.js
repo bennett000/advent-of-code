@@ -1,7 +1,8 @@
+const { isObject } = require('./types');
+
 module.exports = {
   deepCall,
   memoize,
-  isObject,
   partial,
 };
 
@@ -21,10 +22,6 @@ function deepCall(map, obj) {
   }
 
   return map(obj);
-}
-
-function isObject(obj) {
-  return typeof obj === 'object' && obj;
 }
 
 function memoize(fn) {
