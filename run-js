@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Fail on error
+set -e
+
+# Get this file's directory
+FILE_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Load the usage string
+. $FILE_DIRECTORY/run --source-only
+
+checkUsage $1 $2 $3 $4
+
+# assume inputs are sane
+YEAR=$1
+DAY=$2
+PART=$3
+TEST_FILE=$4
+
+SOLUTION="$FILE_DIRECTORY/src/$YEAR/$DAY/$PART/js/solution.js"
+
+node $SOLUTION $TEST_FILE

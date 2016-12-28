@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# fail on error
+set -e
+
+if [ "${1}" != "--source-only" ]; then
+  echo "Please use one of the language specific run tools like:"
+  echo "     * run-hs"
+  echo "     * run-js"
+fi
+
+checkUsage() {
+  if [ $# -lt 3 ]
+    then
+      echo "Usage: $0 <year> <day> <part> [<test-file>]"
+      echo "Example: $0 2015 1 a"
+      echo "Example with test: $0 2015 1 a test-1"
+      exit 1
+  fi
+}

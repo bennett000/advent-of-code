@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Fail on error
+set -e
+
+# Get this file's directory
+FILE_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Load the usage string
+. $FILE_DIRECTORY/run --source-only
+
+checkUsage $1 $2 $3 $4
+
+# assume inputs are sane
+YEAR=$1
+DAY=$2
+PART=$3
+TEST_FILE=$4
+
+SOLUTION_PATH="$FILE_DIRECTORY/src/$YEAR/$DAY"
+SOLUTION="$SOLUTION_PATH/hs/solution.hs"
+
+if [ -z "$4" ]
+  then
+    cat $SOLUTION_PATH/input | runhaskell $SOLUTION_PATH/$PART/hs/solution.hs
+  else
+    cat $SOLUTION_PATH/$PART/$TEST_FILE | \
+      runhaskell $SOLUTION_PATH/$PART/hs/solution.hs
+fi
