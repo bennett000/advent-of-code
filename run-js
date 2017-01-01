@@ -19,4 +19,10 @@ TEST_FILE=$4
 
 SOLUTION="$FILE_DIRECTORY/src/$YEAR/$DAY/$PART/js/solution.js"
 
-node $SOLUTION $TEST_FILE
+if [ -z "$4" ]
+  then
+    node $SOLUTION
+  else
+    node $SOLUTION $FILE_DIRECTORY/src/$YEAR/$DAY/$PART/$TEST_FILE
+fi
+
