@@ -11,14 +11,14 @@ FILE_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 checkUsage $1 $2 $3 $4
 
-# Working directory
-WORK_DIRECTORY="$FILE_DIRECTORY/tmp"
-
 # assume inputs are sane
 YEAR=$1
 DAY=$2
 PART=$3
 TEST_FILE=$4
+
+# Working directory
+WORK_DIRECTORY="$FILE_DIRECTORY/dist/hs/$YEAR/$PART"
 
 SOLUTION_PATH="$FILE_DIRECTORY/src/$YEAR/$DAY"
 SOLUTION="$SOLUTION_PATH/$PART/hs/solution.hs"
@@ -28,7 +28,7 @@ rm -rf $WORK_DIRECTORY
 mkdir -p $WORK_DIRECTORY
 
 # Change Dir due to ghc limitations
-cd $FILE_DIRECTORY/tmp
+cd $WORK_DIRECTORY
 
 # Make
 ghc $SOLUTION -outputdir ./ -o $WORK_DIRECTORY/solution

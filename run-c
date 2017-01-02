@@ -6,9 +6,6 @@ set -e
 # Get this file's directory
 FILE_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# Working directory
-WORK_DIRECTORY="$FILE_DIRECTORY/tmp"
-
 # Library directory
 LIB_DIRECTORY="$FILE_DIRECTORY/src/util/c/"
 
@@ -22,6 +19,9 @@ YEAR=$1
 DAY=$2
 PART=$3
 TEST_FILE=$4
+
+# Working directory
+WORK_DIRECTORY="$FILE_DIRECTORY/dist/c/$YEAR/$PART"
 
 SOLUTION_PATH="$FILE_DIRECTORY/src/$YEAR/$DAY"
 SOLUTION="$SOLUTION_PATH/$PART/c/solution.c"
