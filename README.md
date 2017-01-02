@@ -7,12 +7,33 @@ This repository is not complete, it's entirely for fun and mucking about.
 
 There are currently two languages used for solving puzzles and I would like to eventually add more.  Haskell and JavaScript are the two current implementation languages used.
 
+_note, rather than deal with build systems for each language simple bash scripts are used.  Interpereted languages are run from their source, compiled languages are built into the `dist` folder and their executables are run from there_
+
+## C Instructions
+
+Assuming you have:
+
+* bash
+* gcc
+
+Life should theoretically be good.
+
+```bash
+    # from the repository directory
+    ./run-hs 2015 1 a
+    
+    # should run 2015's first problem, part a
+    
+    # to run part b
+    ./run-hs 2015 1 a
+```
+
 ## Haskell Instructions
 
 Assuming you have:
 
 * bash
-* runhaskell
+* ghc
 
 Life should theoretically be good.
 
@@ -30,7 +51,8 @@ Life should theoretically be good.
 
 Assuming you have:
 
-* node and npm with `node` being a globally available executable
+* bash
+* node with `node` being a globally available executable (some GNU/Linux distributions use nodejs as a binary in their native packages)
 
 Life should theoretically be good (there are no dependencies).
 
@@ -54,7 +76,8 @@ Life should theoretically be good (there are no dependencies).
 - `src/<year>/<day>/<part>/<language>/solution.<language extension>` will 
 contain the source code for a given part of a problem
 - `src/<year>/<day>/input` will be the input data set
-- `src/<year>/<day>/part/<test-file>` will be the _optional_ test data to run
+- `src/<year>/<day>/<part>/<test-file>` will be the _optional_ test data to run
 against the solution
+- compiled languages produce output in `dist/<year>/<day>/<part>/<test-file>
+- compiled languages should produce a static binary named `solution`
 
-_all plans will need adjustments once compiled languages enter the mix_
