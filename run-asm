@@ -23,7 +23,7 @@ ARCH="x86_64"
 OS="darwin"  # darwin, linux, openbsd
 
 # Working directory
-WORK_DIRECTORY="$FILE_DIRECTORY/dist/asm/$ARCH/$YEAR/$PART"
+WORK_DIRECTORY="$FILE_DIRECTORY/dist/asm/$ARCH/$YEAR/$DAY/$PART"
 
 SOLUTION_PATH="$FILE_DIRECTORY/src/$YEAR/$DAY"
 SOLUTION="$SOLUTION_PATH/$PART/asm/$ARCH/solution.asm"
