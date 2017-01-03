@@ -5,7 +5,7 @@ Here are some [advent of code](http://adventofcode.com/ "Advent of Code Website"
 
 This repository is not complete, it's entirely for fun and mucking about.  There are hacky solutions, some of the languages will have especially rough code.
 
-There are currently four languages used for solving puzzles and I would like to eventually add more.  x86_64 Assembly, C, Haskell, and JavaScript are the two current implementation languages used.
+There are currently five languages used for solving puzzles and I would like to eventually add more.  (x86_64) Assembly (Intel style), C, Haskell, JavaScript, and (Common) Lisp are the current implementation languages used.
 
 _note, rather than deal with build systems for each language simple bash scripts are used.  Interpereted languages are run from their source, compiled languages are built into the `dist` folder and their executables are run from there_
 
@@ -74,7 +74,7 @@ Life should theoretically be good.
     ./run-hs 2015 1 b
 ```
 
-## Node Instructions
+## JavaScript Instructions
 
 Assuming you have:
 
@@ -93,6 +93,25 @@ Life should theoretically be good (there are no dependencies).
     ./run-js 2015 1 b
 ```
 
+## (Common) Lisp Instructions
+
+Assuming you have:
+
+* bash
+* sbcl
+
+Life should theoretically be good.
+
+```bash
+    # from the repository directory
+    ./run-cl 2015 1 a
+    
+    # should run 2015's first problem, part a
+    
+    # to run part b
+    ./run-cl 2015 1 b
+```
+
 ## Developing
 
 - all source code lives in the `src` directory
@@ -107,4 +126,10 @@ contain the source code for a given part of a problem
 against the solution
 - compiled languages produce output in `dist/<year>/<day>/<part>/<test-file>
 - compiled languages should produce a static binary named `solution`
+
+## License
+
+Copyright (c) 2017 Michael J. Bennett
+
+This is FLOSS, [LGPL](./LICENSE)
 

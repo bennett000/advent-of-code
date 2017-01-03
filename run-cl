@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Fail on error
+set -e
+
+# Get this file's directory
+FILE_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Load the usage string
+. $FILE_DIRECTORY/run --source-only
+
+checkUsage $1 $2 $3 $4
+
+# assume inputs are sane
+YEAR=$1
+DAY=$2
+PART=$3
+TEST_FILE=$4
+
+# Working directory
+WORK_DIRECTORY="$FILE_DIRECTORY/dist/lisp/$YEAR/$DAY/$PART"
+
+SOLUTION_PATH="$FILE_DIRECTORY/src/$YEAR/$DAY"
+SOLUTION="$SOLUTION_PATH/$PART/lisp/solution.cl"
+
+# Clean
+rm -rf $WORK_DIRECTORY
+mkdir -p $WORK_DIRECTORY
+
+# Change Dir due to ghc limitations
+cd $WORK_DIRECTORY
+
+# Make
+echo "(load \"$SOLUTION\")(sb-ext:save-lisp-and-die \"solution\" :toplevel #'main :executable t)" | sbcl
+
+# Revert to original dir
+cd -
+
+if [ -z "$4" ]
+  then
+    cat $SOLUTION_PATH/input | $WORK_DIRECTORY/solution 
+  else
+    cat $SOLUTION_PATH/$PART/$TEST_FILE | $WORK_DIRECTORY/solution
+fi
