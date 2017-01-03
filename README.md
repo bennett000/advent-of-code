@@ -9,6 +9,33 @@ There are currently two languages used for solving puzzles and I would like to e
 
 _note, rather than deal with build systems for each language simple bash scripts are used.  Interpereted languages are run from their source, compiled languages are built into the `dist` folder and their executables are run from there_
 
+## Assembly Instructions
+
+Assembly code is currently written using Intel syntax
+
+Assuming you have:
+
+* bash
+* nasm
+* ld (GNU)
+
+There are still no guarantees.  Building assembly will take this and some know how.
+
+```bash
+    # from the repository directory
+    ./run-asm 2015 1 a
+    
+    # should run 2015's first problem, part a
+    
+    # to run part b
+    ./run-asm 2015 1 a
+```
+
+Currently the assembly code works on OS X 12.12.2 on Intel X86_64 hardware.
+
+There are plans to test against Linux and BSD.  Consequently the system call code has been isolated.  Unfortunately despite this effort, other things like the way memory is addressed/referenced might be a problem (RIP vs explicit).  Also the current build tooling is hard coded for darwin and Mach.
+
+
 ## C Instructions
 
 Assuming you have:

@@ -34,3 +34,8 @@ testem.log
 Thumbs.db
 
 c-temp
+
+# temp files
+*~
+#*
+*.swp

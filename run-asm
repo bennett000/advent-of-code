@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+# Fail on error
+set -e
+
+# Get this file's directory
+FILE_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Library directory
+LIB_DIRECTORY="$FILE_DIRECTORY/src/util/c/"
+
+# Load the usage string
+. $FILE_DIRECTORY/run --source-only
+
+checkUsage $1 $2 $3 $4
+
+# assume inputs are sane
+YEAR=$1
+DAY=$2
+PART=$3
+TEST_FILE=$4
+ARCH="x86_64"
+OS="darwin"  # darwin, linux, openbsd
+
+# Working directory
+WORK_DIRECTORY="$FILE_DIRECTORY/dist/asm/$ARCH/$YEAR/$PART"
+
+SOLUTION_PATH="$FILE_DIRECTORY/src/$YEAR/$DAY"
+SOLUTION="$SOLUTION_PATH/$PART/asm/$ARCH/solution.asm"
+SYSTEM="$FILE_DIRECTORY/src/util/asm/x86_64/sys/$OS.asm"
+UTIL="$FILE_DIRECTORY/src/util/asm/x86_64/util.asm"
+SOLUTION_OBJECT="$WORK_DIRECTORY/solution.o"
+SYSTEM_OBJECT="$WORK_DIRECTORY/system.o"
+# @todo make util iterate like the C version
+UTIL_OBJECT="$WORK_DIRECTORY/util.o"
+EXECUTABLE="$WORK_DIRECTORY/solution"
+
+# Clean
+rm -rf $WORK_DIRECTORY
+mkdir -p $WORK_DIRECTORY
+
+# Move to work dir
+cd $WORK_DIRECTORY
+
+# Make
+nasm -f macho64 $SYSTEM -o $SYSTEM_OBJECT
+nasm -f macho64 $UTIL -o $UTIL_OBJECT
+nasm -f macho64 $SOLUTION -o $SOLUTION_OBJECT
+
+ld $SYSTEM_OBJECT $UTIL_OBJECT $SOLUTION_OBJECT -e start\
+ -macosx_version_min 10.7.0 -lSystem -o $EXECUTABLE 
+
+# Move back
+cd -
+
+if [ -z "$4" ]
+  then
+    cat $SOLUTION_PATH/input | $WORK_DIRECTORY/solution
+  else
+    cat $SOLUTION_PATH/$PART/$TEST_FILE | $WORK_DIRECTORY/solution
+fi
