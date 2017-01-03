@@ -3,9 +3,9 @@ Advent of Code
 
 Here are some [advent of code](http://adventofcode.com/ "Advent of Code Website") solutions and input data.
 
-This repository is not complete, it's entirely for fun and mucking about.
+This repository is not complete, it's entirely for fun and mucking about.  There are hacky solutions, some of the languages will have especially rough code.
 
-There are currently two languages used for solving puzzles and I would like to eventually add more.  Haskell and JavaScript are the two current implementation languages used.
+There are currently four languages used for solving puzzles and I would like to eventually add more.  x86_64 Assembly, C, Haskell, and JavaScript are the two current implementation languages used.
 
 _note, rather than deal with build systems for each language simple bash scripts are used.  Interpereted languages are run from their source, compiled languages are built into the `dist` folder and their executables are run from there_
 
@@ -28,7 +28,7 @@ There are still no guarantees.  Building assembly will take this and some know h
     # should run 2015's first problem, part a
     
     # to run part b
-    ./run-asm 2015 1 a
+    ./run-asm 2015 1 b
 ```
 
 Currently the assembly code works on OS X 12.12.2 on Intel X86_64 hardware.
@@ -52,7 +52,7 @@ Life should theoretically be good.
     # should run 2015's first problem, part a
     
     # to run part b
-    ./run-hs 2015 1 a
+    ./run-hs 2015 1 b
 ```
 
 ## Haskell Instructions
@@ -71,7 +71,7 @@ Life should theoretically be good.
     # should run 2015's first problem, part a
     
     # to run part b
-    ./run-hs 2015 1 a
+    ./run-hs 2015 1 b
 ```
 
 ## Node Instructions
@@ -90,7 +90,7 @@ Life should theoretically be good (there are no dependencies).
     # should run 2015's first problem, part a
     
     # to run part b
-    ./run-js 2015 1 a
+    ./run-js 2015 1 b
 ```
 
 ## Developing
