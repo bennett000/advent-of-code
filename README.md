@@ -124,7 +124,7 @@ contain the source code for a given part of a problem
 - `src/<year>/<day>/input` will be the input data set
 - `src/<year>/<day>/<part>/<test-file>` will be the _optional_ test data to run
 against the solution
-- compiled languages produce output in `dist/<year>/<day>/<part>/<test-file>
+- compiled languages produce output in `dist/<year>/<day>/<part>/<test-file>`
 - compiled languages should produce a static binary named `solution`
 
 ## License
