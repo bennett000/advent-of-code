@@ -104,12 +104,12 @@ Life should theoretically be good.
 
 ```bash
     # from the repository directory
-    ./run-cl 2015 1 a
+    ./run-lisp 2015 1 a
     
     # should run 2015's first problem, part a
     
     # to run part b
-    ./run-cl 2015 1 b
+    ./run-lisp 2015 1 b
 ```
 
 ## Developing
