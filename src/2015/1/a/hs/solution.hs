@@ -1,5 +1,5 @@
 main = do
-    stdin <- getLine
+    stdin <- getContents
     let floor = foldl changeFloor 0 stdin
     putStrLn $ "Santa is on floor " ++ show floor
 

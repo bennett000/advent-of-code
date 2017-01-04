@@ -1,5 +1,5 @@
 main = do
-    stdin <- getLine
+    stdin <- getContents
     let scanFloorStatus = scanl floorStatus (0, 1) stdin
     let floor = (snd . last) (takeFloorScan scanFloorStatus)
     putStrLn $ "Santa enters the basement at position: " ++ show floor
