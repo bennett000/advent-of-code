@@ -22,3 +22,4 @@ const destination = steps
   }, 0);
 
 console.log('Santa is on floor', destination);
+
