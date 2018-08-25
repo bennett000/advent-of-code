@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+usage() {
+  echo "Usage: $0 [year] [day]"
+  echo "Or: $0 [year] [day] [language]"
+  echo ""
+}
+
+if [[ $# -lt 2 ]] ; then
+  usage
+  exit 1
+fi
+
+if [[ $# -gt 3 ]] ; then
+  usage
+  exit 1
+fi
+
+YEAR=$1
+DAY=$2
+PRELANG=$3
+LANG=${PRELANG:-js}
+
+set -e
+
+mkdir -p src/$YEAR src/$YEAR/$DAY src/$YEAR/$DAY src/$YEAR/$DAY/a src/$YEAR/$DAY/b src/$YEAR/$DAY/a/$LANG src/$YEAR/$DAY/b/$LANG
+touch src/$YEAR/$DAY/input
